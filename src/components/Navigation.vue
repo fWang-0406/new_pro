@@ -1,4 +1,4 @@
-<!-- src/components/Navigation.vue（修改） -->
+<!-- src/components/Navigation.vue -->
 <template>
   <div class="navigation-panel">
     <div class="panel-header">
@@ -54,41 +54,75 @@
 
 <script>
 import { useDataStore } from '../stores/dataStore'
+import { onMounted, ref } from 'vue'
 
 export default {
   name: 'Navigation',
   emits: ['close'],
-  data() {
+  setup(props, { emit }) {
     const dataStore = useDataStore()
-    return {
-      reportConfig: { ...dataStore.reportConfig }
+    const reportConfig = ref({})
+
+    onMounted(() => {
+      reportConfig.value = { ...dataStore.reportConfig }
+    })
+
+    const updateConfig = () => {
+      dataStore.updateReportConfig(reportConfig.value)
     }
-  },
-  methods: {
-    updateConfig() {
-      const dataStore = useDataStore()
-      dataStore.updateReportConfig(this.reportConfig)
+
+    return {
+      reportConfig,
+      updateConfig
     }
   }
 }
 </script>
 
 <style scoped>
-/* 新增样式 */
-.form-group {
-  margin-bottom: 15px;
+.navigation-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  z-index: 100;
 }
 
-.form-group label {
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #7f8c8d;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  color: #2c3e50;
   font-weight: 500;
 }
 
-.form-group input,
-.form-group select {
+input, select {
   width: 100%;
-  padding: 8px;
+  padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -96,6 +130,12 @@ export default {
 .checkbox-group {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 8px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 </style>

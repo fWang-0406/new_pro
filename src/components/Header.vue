@@ -15,7 +15,8 @@
       </ul>
     </nav>
     <div class="header-actions">
-      <button class="action-btn" @click="toggleEditPanel">编辑</button>
+      <button class="action-btn" @click="goToReportGenerator">生成报告</button> <!-- 新增 -->
+      <button class="action-btn" @click="toggleEditPanel">编辑报告</button>
       <button class="action-btn" @click="toggleExportPanel">导出</button>
     </div>
   </header>
@@ -30,6 +31,7 @@
 <script>
 import Navigation from './Navigation.vue'
 import ExportPanel from './ExportPanel.vue'
+import { useRouter } from 'vue-router' // 新增
 
 export default {
   name: 'Header',
@@ -43,10 +45,23 @@ export default {
       showExportPanel: false,
       menuItems: [
         { title: '基础数据', path: '/base-data' },
+        { title: '数据上传', path: '/data-processing' }, // 修改
         { title: '分析指标', path: '/analysis-index' },
         { title: '标准表格', path: '/standard-table' },
-        { title: '自定义表格', path: '/custom-table' }
+        { title: '自定义表格', path: '/custom-table' },
+        { title: '生成报告', path: '/report-generator' } // 新增
       ]
+    }
+  },
+  setup() {
+    const router = useRouter()
+
+    const goToReportGenerator = () => {
+      router.push('/report-generator')
+    }
+
+    return {
+      goToReportGenerator
     }
   },
   methods: {
@@ -63,6 +78,7 @@ export default {
 </script>
 
 <style scoped>
+/* 保持原有样式不变 */
 .header {
   display: flex;
   align-items: center;
