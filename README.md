@@ -75,17 +75,26 @@ frontend-project/
 │   │   ├── Header.vue     # 顶部导航组件
 │   │   ├── Navigation.vue # 编辑面板组件
 │   │   ├── ExportPanel.vue # 导出面板组件
-│   │   └── DataTable.vue  # 通用表格组件
+│   │   ├── DataTable.vue  # 通用表格组件
+│   │   ├── ChartControls.vue # 新增：图表控制组件
+│   │   └── SheetList.vue  # 新增：表格列表组件
 │   ├── views/            # 页面级组件
 │   │   ├── BaseData.vue   # 基础数据页面
 │   │   ├── AnalysisIndex.vue # 分析指标页面
 │   │   ├── StandardTable.vue # 标准表格页面
-│   │   └── CustomTable.vue  # 自定义表格页面
+│   │   ├── CustomTable.vue  # 自定义表格页面
+│   │   ├── AllSheets.vue  # 新增：所有表格页面
+│   │   └── LineAnalysis.vue # 新增：线路分析页面
 │   ├── router/           # 路由配置
 │   │   └── index.js      # 路由定义
 │   ├── assets/           # 静态资源
 │   │   └── styles/       # 样式文件
-│   │       └── global.css # 全局样式
+│   │       ├── global.css # 全局样式
+│   │       ├── all-sheets.css # 新增：表格列表样式
+│   │       ├── line-analysis.css # 新增：线路分析样式
+│   │       └── common.css # 新增：通用样式整合
+│   ├── utils/            # 工具函数
+│   │   └── chart-utils.js # 新增：图表工具函数
 │   ├── App.vue           # 根组件
 │   └── main.js           # 应用入口文件
 ├── index.html            # HTML 模板

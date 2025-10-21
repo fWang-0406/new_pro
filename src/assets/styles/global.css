@@ -1,3 +1,4 @@
+/* 全局样式 */
 * {
   margin: 0;
   padding: 0;
@@ -5,9 +6,10 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Microsoft YaHei", sans-serif; /* 统一字体 */
   line-height: 1.6;
-  color: #333;
+  color: #343a40; /* 统一文本色 */
+  background-color: #f8f9fa;
 }
 
 #app {
@@ -16,13 +18,99 @@ body {
 
 h1, h2, h3, h4 {
   margin-bottom: 15px;
-  color: #2c3e50;
+  color: #343a40; /* 统一标题色 */
 }
 
 button {
   font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s; /* 统一过渡效果 */
 }
 
 a {
-  color: #3498db;
+  color: #0d6efd; /* 统一链接色为主题蓝 */
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0b5ed7; /* 链接hover色 */
+}
+
+/* Bootstrap 兼容样式 - 与主题风格统一 */
+.btn {
+  display: inline-block;
+  padding: 8px 15px; /* 调整内边距 */
+  margin-bottom: 0;
+  font-size: 0.9rem; /* 统一字体大小 */
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 5px; /* 统一圆角 */
+  transition: all 0.3s; /* 统一过渡 */
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #0d6efd; /* 主题蓝 */
+  border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+  background-color: #0b5ed7; /* 加深色调 */
+  border-color: #0a58ca;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5c636a;
+  border-color: #545b62;
+}
+
+.spinner-border {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: text-bottom;
+  border: 0.25em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border .75s linear infinite;
+}
+
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0,0,0,0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }

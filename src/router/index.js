@@ -1,25 +1,47 @@
-import { createRouter, createWebHistory } from 'vue-router'
-
-const BaseData = () => import('../views/BaseData.vue')
-const AnalysisIndex = () => import('../views/AnalysisIndex.vue')
-const StandardTable = () => import('../views/StandardTable.vue')
-const CustomTable = () => import('../views/CustomTable.vue')
-// 添加新路由
-const ReportEditor = () => import('../views/ReportEditor.vue')
+import { createRouter, createWebHistory } from 'vue-router';
+import BaseData from '../views/BaseData.vue';
+import AnalysisIndex from '../views/AnalysisIndex.vue';
+import StandardTable from '../views/StandardTable.vue';
+import CustomTable from '../views/CustomTable.vue';
+import AllSheets from '../views/AllSheets.vue'; // 新增
+import LineAnalysis from '../views/LineAnalysis.vue'; // 新增
 
 const routes = [
-  { path: '/', redirect: '/base-data' },
-  { path: '/base-data', component: BaseData },
-  { path: '/analysis-index', component: AnalysisIndex },
-  { path: '/standard-table', component: StandardTable },
-  { path: '/custom-table', component: CustomTable },
-  // 注册报告编辑路由
-  { path: '/report-editor', component: ReportEditor }
-]
+  {
+    path: '/',
+    name: 'BaseData',
+    component: BaseData
+  },
+  {
+    path: '/analysis-index',
+    name: 'AnalysisIndex',
+    component: AnalysisIndex
+  },
+  {
+    path: '/standard-table',
+    name: 'StandardTable',
+    component: StandardTable
+  },
+  {
+    path: '/custom-table',
+    name: 'CustomTable',
+    component: CustomTable
+  },
+  { // 新增路由
+    path: '/all-sheets',
+    name: 'AllSheets',
+    component: AllSheets
+  },
+  { // 新增路由
+    path: '/line-analysis',
+    name: 'LineAnalysis',
+    component: LineAnalysis
+  }
+];
 
 const router = createRouter({
   history: createWebHistory(),
   routes
-})
+});
 
-export default router
+export default router;

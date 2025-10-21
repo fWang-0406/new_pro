@@ -15,7 +15,7 @@
       </ul>
     </nav>
     <div class="header-actions">
-      <button class="action-btn" @click="goToReportGenerator">生成报告</button> <!-- 新增 -->
+      <button class="action-btn" @click="goToReportGenerator">生成报告</button>
       <button class="action-btn" @click="toggleEditPanel">编辑报告</button>
       <button class="action-btn" @click="toggleExportPanel">导出</button>
     </div>
@@ -31,7 +31,7 @@
 <script>
 import Navigation from './Navigation.vue'
 import ExportPanel from './ExportPanel.vue'
-import { useRouter } from 'vue-router' // 新增
+import { useRouter } from 'vue-router'
 
 export default {
   name: 'Header',
@@ -45,11 +45,13 @@ export default {
       showExportPanel: false,
       menuItems: [
         { title: '基础数据', path: '/base-data' },
-        { title: '数据上传', path: '/data-processing' }, // 修改
+        { title: '数据上传', path: '/data-processing' },
         { title: '分析指标', path: '/analysis-index' },
         { title: '标准表格', path: '/standard-table' },
         { title: '自定义表格', path: '/custom-table' },
-        { title: '生成报告', path: '/report-generator' } // 新增
+        { title: '所有数据表', path: '/all-sheets' }, // 新增：所有数据表页面
+        { title: '线路负载分析', path: '/line-analysis' }, // 新增：线路负载分析页面
+        { title: '生成报告', path: '/report-generator' }
       ]
     }
   },
